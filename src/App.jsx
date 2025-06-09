@@ -10,9 +10,11 @@ import MenuItem from '@mui/material/MenuItem'
 import FormControl from '@mui/material/FormControl'
 import Select from '@mui/material/Select'
 import LightModeIcon from '@mui/icons-material/LightMode'
-import DarkModeOutlinedIcon  from '@mui/icons-material/DarkModeOutlined'
-import SettingsBrightnessIcon  from '@mui/icons-material/SettingsBrightness'
+import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined'
+import SettingsBrightnessIcon from '@mui/icons-material/SettingsBrightness'
 import { Box } from '@mui/material'
+import Container from '@mui/material/Container'
+
 function ModeSelect() {
   const { mode, setMode } = useColorScheme()
   const handleChange = (event) => {
@@ -31,7 +33,7 @@ function ModeSelect() {
         onChange={handleChange}
       >
         <MenuItem value="light">
-          <div style={{display:'flex', alignItems:'center', gap:'8px'}}>
+          <div style={{ display:'flex', alignItems:'center', gap: 1 }}>
             <LightModeIcon fontSize='small' />
             Light
           </div>
@@ -53,40 +55,39 @@ function ModeSelect() {
   )
 }
 
-function ModeToggle() {
-  const { mode, setMode } = useColorScheme()
-  // const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)')
-  // const prefersLightMode = useMediaQuery('(prefers-color-scheme: light  )')
-  // console.log('prefersDarkMode', prefersDarkMode)
-  // console.log('prefersLightMode', prefersLightMode)
-  return (
-    <Button
-      onClick={() => {
-        setMode(mode === 'light' ? 'dark' : 'light')
-      }}
-    >
-      {mode === 'light' ? 'Turn dark' : 'Turn light'}
-    </Button>
-  )
-}
 
 function App() {
   return (
     <>
-      <hr></hr>
-      <ModeSelect />
-      <hr></hr>
-
-      <ModeToggle />
-      <h1>Material UI</h1>
-      <div>hoang tuan dev</div>
-      <Button variant="text" color="success">Text</Button>
-      <Button variant="contained" color="success">Contained</Button>
-      <Button variant="outlined">Outlined</Button>
-      <Typography variant="body2" color="text.secondary">test</Typography>
-      <br />
-      <AccessAlarmIcon />
-      <ThreeDRotation />
+      <Container disableGutters maxWidth={false} sx={{ height: '100vh' }}>
+        <Box sx={{
+          backgroundColor: 'primary.light',
+          width: '100%',
+          height: (theme) => theme.trelloCustom.appBarHeight,
+          display: 'flex',
+          alignItems: 'center'
+        }} >
+          <ModeSelect />
+        </Box>
+        <Box sx={{
+          backgroundColor: 'primary.dark',
+          width: '100%',
+          height: (theme) => theme.trelloCustom.boardBarHeight,
+          display: 'flex',
+          alignItems: 'center'
+        }}>
+          Board Bar
+        </Box>
+        <Box sx={{
+          backgroundColor: 'primary.main',
+          width: '100%',
+          height: (theme) => `calc(100vh - ${theme.trello.appBarHeight} - ${theme.trello.boardBarHeight})`,
+          display: 'flex',
+          alignItems: 'center'
+        }}>
+          Board Content
+        </Box>
+      </Container>
     </>
   )
 
