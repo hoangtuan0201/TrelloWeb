@@ -33,7 +33,7 @@ function Profiles() {
           aria-expanded={open ? 'true' : undefined}
         >
           <Avatar
-            sx={{ width: 30, height: 30 }}
+            sx={{ width: 34, height: 34, fontSize: 16 }}
             alt="Tuấn"
             src="https://scontent.fsgn2-6.fna.fbcdn.net/v/t39.30808-1/499954829_1470094417696096_4100871370921941670_n.jpg?stp=dst-jpg_s160x160_tt6&_nc_cat=110&ccb=1-7&_nc_sid=e99d92&_nc_ohc=2JqBICmnmrMQ7kNvwFiA74n&_nc_oc=AdmepT1-bBbGBwf788ideSZ8ttottLus0I4SRu68TMLBwcSY8-TVajOGD-sNAo-vtMw&_nc_zt=24&_nc_ht=scontent.fsgn2-6.fna&_nc_gid=moU6TIvQCZ_OJRuAike-Fg&oh=00_AfO5HpnDQ8P9DK-TGJ7IW5rXpHPJ4UtQxVDgc8HqcU9REw&oe=68573BF2"
           />
